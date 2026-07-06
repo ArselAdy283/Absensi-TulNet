@@ -4,15 +4,9 @@ import { db } from "@/db";
 import { users, sessions, attendance } from "@/db/schema";
 import { eq, desc } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
-import fs from "fs/promises";
-import path from "path";
 import { v2 as cloudinary } from "cloudinary";
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+
 
 // USERS ACTIONS
 export async function getUsers() {
@@ -130,6 +124,11 @@ export async function createAttendance(data: {
   address: string | null;
 }) {
   try {
+    cloudinary.config({
+      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY,
+      api_secret: process.env.CLOUDINARY_API_SECRET,
+    });
     // Upload image to Cloudinary
     const uploadResponse = await cloudinary.uploader.upload(data.photoBase64, {
       folder: "attendance",

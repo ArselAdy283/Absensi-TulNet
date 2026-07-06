@@ -5,7 +5,10 @@ import * as schema from "./schema";
 const connectionString = process.env.DATABASE_URL;
 
 const poolConnection = mysql.createPool({
-    uri: connectionString as string,
+    uri: (connectionString as string).replace('?ssl-mode=REQUIRED', ''),
+    ssl: {
+      rejectUnauthorized: false
+    }
 });
 
 export const db = drizzle(poolConnection, { schema, mode: "default" });

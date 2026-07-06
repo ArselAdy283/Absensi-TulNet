@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useSidebar } from "@/context/SidebarContext";
 
 const Navbar = () => {
-    const { theme, setTheme } = useTheme();
+    const { theme, setTheme, resolvedTheme } = useTheme();
     const { toggleSidebar } = useSidebar();
     const [mounted, setMounted] = useState(false);
 
@@ -15,7 +15,7 @@ const Navbar = () => {
     }, []);
 
     const toggleTheme = () => {
-        setTheme(theme === "dark" ? "light" : "dark");
+        setTheme(resolvedTheme === "dark" ? "light" : "dark");
     };
 
     return (
@@ -27,7 +27,7 @@ const Navbar = () => {
                 <div className="text-xl md:text-3xl font-bold">Absensi</div>
             </div>
             <button id="theme-toggle" onClick={toggleTheme} className="cursor-pointer" title="Toggle Theme">
-                {mounted && theme === "dark" ? (
+                {mounted && resolvedTheme === "dark" ? (
                     <PiSunBold id="theme-icon" className="text-xl md:text-3xl text-black dark:text-white" />
                 ) : (
                     <PiMoonBold id="theme-icon" className="text-xl md:text-3xl text-black dark:text-white" />

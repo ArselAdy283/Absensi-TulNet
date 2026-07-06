@@ -8,7 +8,7 @@
  */
 export function formatSessionDateTime(date: Date, timeStr: string): string {
     const dateFormatter = new Intl.DateTimeFormat("id-ID", {
-        timeZone: "UTC",
+        timeZone: "UTC", // The db stores session date at UTC midnight, keep it UTC so the day doesn't shift
         day: "2-digit",
         month: "long",
         year: "numeric"
@@ -23,13 +23,13 @@ export function formatSessionDateTime(date: Date, timeStr: string): string {
  */
 export function formatAttendanceTime(date: Date): string {
     const dateFormatter = new Intl.DateTimeFormat("id-ID", {
-        timeZone: "UTC",
+        timeZone: "Asia/Jakarta",
         day: "2-digit",
         month: "long",
         year: "numeric"
     });
     const timeFormatter = new Intl.DateTimeFormat("id-ID", {
-        timeZone: "UTC",
+        timeZone: "Asia/Jakarta",
         hour: "2-digit",
         minute: "2-digit",
         hour12: false
