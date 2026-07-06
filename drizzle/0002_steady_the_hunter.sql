@@ -1,0 +1,1 @@
+ALTER TABLE `attendance` MODIFY COLUMN `photo` varchar(255) NOT NULL;

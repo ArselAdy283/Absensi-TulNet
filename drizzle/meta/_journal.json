@@ -8,6 +8,20 @@
       "when": 1783266146205,
       "tag": "0000_premium_demogoblin",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1783314237426,
+      "tag": "0001_whole_the_fury",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1783314561185,
+      "tag": "0002_steady_the_hunter",
+      "breakpoints": true
     }
   ]
 }

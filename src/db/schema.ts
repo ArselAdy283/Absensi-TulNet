@@ -17,7 +17,7 @@ export const attendance = mysqlTable("attendance", {
   id: serial("id").primaryKey(),
   userId: int("user_id").notNull().references(() => users.id),
   sessionId: int("session_id").notNull().references(() => sessions.id),
-  photo: varchar("photo", { length: 255 }).notNull(), // Path to the file in /uploads
+  photo: varchar("photo", { length: 255 }).notNull(), // Path to the file in /uploads or Cloudinary URL
   latitude: double("latitude").notNull(),
   longitude: double("longitude").notNull(),
   address: text("address"), // Can be null if geocoding fails
