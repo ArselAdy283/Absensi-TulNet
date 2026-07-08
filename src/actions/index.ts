@@ -21,6 +21,7 @@ export async function getUsers() {
 export async function createUser(name: string, nisn: string) {
   try {
     await db.insert(users).values({ name, nisn });
+    revalidatePath("/siswa");
     revalidatePath("/tabel");
     revalidatePath("/absen");
     return { success: true };

@@ -15,7 +15,7 @@ export default function SiswaListClient({ users }: { users: User[] }) {
 
     const handleDelete = (id: number, name: string) => {
         toast(`Yakin ingin menghapus ${name}?`, {
-            description: "Semua data absensi beserta fotonya untuk siswa ini akan ikut terhapus secara permanen.",
+            description: "Semua data absensi untuk siswa ini akan ikut terhapus secara permanen.",
             action: {
                 label: "Hapus",
                 onClick: async () => {
@@ -65,19 +65,19 @@ export default function SiswaListClient({ users }: { users: User[] }) {
         <>
             <div className="bg-white dark:bg-gray-900 p-6 rounded-lg border border-gray-300 dark:border-gray-800 overflow-x-auto">
                 <h2 className="text-xl font-semibold mb-4">Daftar Siswa</h2>
-                <table className="w-full text-left border-collapse min-w-[500px]">
+                <table className="w-full text-left border-collapse min-w-125">
                     <thead>
                         <tr className="border-b border-gray-300 dark:border-gray-700">
-                            <th className="p-3">ID</th>
+                            <th className="p-3">No</th>
                             <th className="p-3">Nama</th>
                             <th className="p-3">NISN</th>
                             <th className="p-3">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map((user) => (
+                        {users.map((user, index) => (
                             <tr key={user.id} className="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 last:border-b-0">
-                                <td className="p-3">{user.id}</td>
+                                <td className="p-3">{index + 1}</td>
                                 <td className="p-3 font-medium">{user.name}</td>
                                 <td className="p-3">{user.nisn}</td>
                                 <td className="p-3">

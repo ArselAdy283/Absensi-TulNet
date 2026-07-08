@@ -45,7 +45,7 @@ export default async function SiswaPage() {
                         type="submit"
                         className="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-md transition-colors w-full sm:w-auto"
                     >
-                        Tambah User
+                        Tambah Siswa
                     </button>
                 </form>
             </div>
